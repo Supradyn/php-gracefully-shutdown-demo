@@ -1,3 +1,3 @@
 <?php
 
-echo file_get_contents("tmp/test_proc.log");
+echo file_get_contents("test_proc.log");

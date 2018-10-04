@@ -38,6 +38,6 @@ class SignalController
      */
     public static function log($str)
     {
-        file_put_contents('/tmp/test_proc.log', date('c') . ': ' . $str . PHP_EOL, FILE_APPEND);
+        file_put_contents('test_proc.log', date('c') . ': ' . $str . PHP_EOL, FILE_APPEND);
     }
 }
