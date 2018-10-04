@@ -4,6 +4,8 @@ class SignalController
 {
     protected static $isTerminated = false;
 
+    protected static $mysqli;
+
     /**
      * SignalController constructor.
      */
@@ -38,6 +40,9 @@ class SignalController
      */
     public static function log($str)
     {
-        file_put_contents('test_proc.log', date('c') . ': ' . $str . PHP_EOL, FILE_APPEND);
+        if (empty(self::$mysqli)) {
+            self::$mysqli = new mysqli('192.168.42.131:32439', 'user123', 'pass123', 'simple');
+        }
+        self::$mysqli->query('INSERT INTO simple VALUES("' . $str . ': ' . date('c') . '")');
     }
 }
