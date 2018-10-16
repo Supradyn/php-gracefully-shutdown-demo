@@ -40,9 +40,7 @@ class SignalController
      */
     public static function log($str)
     {
-        if (empty(self::$mysqli)) {
-            self::$mysqli = new mysqli('192.168.42.131:32439', 'user123', 'pass123', 'simple');
-        }
-        self::$mysqli->query('INSERT INTO simple VALUES("' . $str . ': ' . date('c') . '")');
+        var_dump($str);
+        return;
     }
 }
